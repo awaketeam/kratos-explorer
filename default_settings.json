@@ -1,0 +1,57 @@
+{
+  "public":{
+      "chainName": "Kratos  Testnet",
+      "chainId": "kratos",
+      "gtm": "{Add your Google Tag Manager ID here}",
+      "slashingWindow": 10000,
+      "uptimeWindow": 250,
+      "initialPageSize": 30,
+      "secp256k1": false,
+      "bech32PrefixAccAddr": "kratos",
+      "bech32PrefixAccPub": "kratospub",
+      "bech32PrefixValAddr": "kratosvaloper",
+      "bech32PrefixValPub": "kratosvaloperpub",
+      "bech32PrefixConsAddr": "kratosvalcons",
+      "bech32PrefixConsPub": "kratosvalconspub",
+      "bondDenom": "kratos/kts",
+      "bondDenomShowAs": "KTS",
+      "powerReduction": 1000000,
+      "coins": [
+          {
+              "denom": "kratos/kts",
+              "displayName": "kratos/kts",
+              "displayNamePlural": "kratos/kts",
+              "showAs": "KTS",
+              "fraction": 1000000000000000000
+          }, 
+          {
+              "denom": "kratos/ukts",
+              "displayName": "ukts",
+              "displayNamePlural": "ukts",
+              "fraction": 1000000000000000000
+          } 
+      ],
+      "gasPrice": 200000000000,
+      "coingeckoId": "kratos"
+  },
+  "genesisFile": "{Replace the address of the genesis file of the chain}",
+  "remote":{
+      "rpc":"http://node_rpc_port",
+      "lcd":"http://light_node_interface"
+  },
+  "debug": {
+      "startTimer": true,
+      "readGenesis": false
+  },
+  "params":{
+      "startHeight": 0,
+      "defaultBlockTime": 5000,
+      "blockInterval": 15000,
+      "consensusInterval": 1000,
+      "statusInterval":7500,
+      "signingInfoInterval": 1800000,
+      "proposalInterval": 5000,
+      "missedBlocksInterval": 60000,
+      "delegationInterval": 900000
+  }
+}

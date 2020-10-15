@@ -1,0 +1,46 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3080:3000'
+    entrypoint:
+      - bash
+      - ./startup.sh 
+    depends_on:
+      - mongo
+    volumes:
+      - ./:/opt/src
+    environment:
+      ROOT_URL: ${APP_ROOT_URL:-http://localhost}
+      MONGO_URL: mongodb://mongo_db_for_bigdipper:27017/meteor
+      PORT: 3000
+      METEOR_SETTINGS: ./settings.json
+    networks:
+      expolorer_net:
+        aliases:
+          - big_ripper
+
+  mongo:
+    image: mongo:latest
+    command:
+      - --storageEngine=wiredTiger
+    ports:
+      - 27017
+    networks:
+      expolorer_net:
+        aliases:
+          - mongo_db_for_bigdipper
+    volumes:
+      - /data/mongodb_data:/data/db
+
+volumes:
+  data:
+
+
+networks:
+  expolorer_net:
+    name: expolorer_net
